@@ -1,32 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-html {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  margin: 0;
-  font-family: Bebas Neue, sans-serif;
-  background: whitesmoke;
+  background-color: whitesmoke;
+  font-family: 'Roboto Slab', serif;
 }
 
 h1 {
+  color: #8B6A62;
   text-align: center;
   margin-top: 25px;
-  margin-bottom: 15px;
   font-size: 40px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
   letter-spacing: 5px;
 }
 
-/* Loader */
+h4 {
+  color: #8B6A62;
+  text-align: center;
+  margin-top: 0;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
 .loader {
+  width: 50%;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 2555, 0.3);
 }
 
 .loader img {
@@ -34,25 +45,60 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 150px;
 }
 
-/* Image Container */
+
 .image-container {
-  margin: 10px 30%;
+    margin: 10px 5%;
+    columns: 4;
+    column-gap: 1.8rem;
 }
 
 .image-container img {
   width: 100%;
-  margin-top: 5px;
+  margin-bottom: 1.8rem;
+  border-radius: 8px;
+  transition: 0.4s transform ease-in-out;
+  box-shadow: 0px 10px 30px -10px rgba(0,0,0,.3);
 }
 
-/* Media Query: Large Smartphone Vertical */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 20px;
-  }
+.image-container img:hover {
+  transform: scale(1.04);
+}
 
+.unsplash-link {
+  font-style: italic;
+  text-decoration: none;
+  color: rgb(17, 7, 7);
+}
+.unsplash-link:visited {
+  text-decoration: none;
+  color: rgb(17, 7, 7);
+}
+.unsplash-link:hover {
+  text-decoration: none;
+  color: rgb(17, 7, 7);
+}
+.unsplash-link:active {
+  text-decoration: none;
+  color: rgb(17, 7, 7);
+}
+
+@media only screen and (max-width:1000px) {
   .image-container {
-    margin: 10px;
+      columns: 3;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .image-container {
+      columns: 2;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .image-container {
+      columns: 1;
   }
 }

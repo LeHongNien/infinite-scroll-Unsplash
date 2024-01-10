@@ -6,13 +6,12 @@ let imagesLoaded = 0;
 let totalImages = 0;
 let photosArray = [];
 
-// Unsplash API
+const query = 'Minimalist';
 const count = 30;
-// Normally, don't store API Keys like this, but an exception made here because it is free, and the data is publicly available!
-const apiKey = 'jFgS8tteGD425f4oZfygQVaVnD6gt6GucN2yyz3xFek';
-const apiUrl = `c/photos/random?client_id=${apiKey}&count=${count}`;
+const apiKey = '-KsOXvdzrmis5K5FFHbUNb1HOJks2OpVmYARueRdjAw';
+const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${count}&query=${query}`;
 
-// Check if all images were loaded
+// Hide loader when image are loaded
 function imageLoaded() {
   imagesLoaded++;
   if (imagesLoaded === totalImages) {
@@ -21,7 +20,7 @@ function imageLoaded() {
   }
 }
 
-// Helper Function to Set Attributes on DOM Elements
+// Function to Set Attributes on DOM Elements
 function setAttributes(element, attributes) {
   for (const key in attributes) {
     element.setAttribute(key, attributes[key]);
@@ -32,9 +31,8 @@ function setAttributes(element, attributes) {
 function displayPhotos() {
   imagesLoaded = 0;
   totalImages = photosArray.length;
-  // Run function for each object in photosArray
   photosArray.forEach((photo) => {
-    // Create <a> to link to full photo
+    // Link full photo with <a>
     const item = document.createElement('a');
     setAttributes(item, {
       href: photo.links.html,
@@ -62,11 +60,10 @@ async function getPhotos() {
     photosArray = await response.json();
     displayPhotos();
   } catch (error) {
-    // Catch Error Here
   }
 }
 
-// Check to see if scrolling near bottom of page, Load More Photos
+// Load more photos when scrolling near bottom
 window.addEventListener('scroll', () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
     ready = false;
