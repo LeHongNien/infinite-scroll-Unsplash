@@ -1,5 +1,7 @@
-# Changes to improve
+# Infinite Scroll with Unsplash API
 
-1. Add a search box for users to choose what they wish to find
+Click here to see it working --> https://lehongnien.github.io/infinite-scroll-Unsplash/
 
-2. Fix scrolling refresh bug
+## Changes to improve
+
+1. Add search box for users to set query
